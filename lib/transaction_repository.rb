@@ -38,20 +38,43 @@ class TransactionRepository
     transactions.detect { |transaction| transaction.credit_card_expiration_date == input}
   end
 
-  def find_by_result(input) #test not very robust because many transactions have the same result
+  def find_by_result(input)
     transactions.detect { |transaction| transaction.result == input}
   end
 
-  def find_by_created_at(input) #test not very robust because many transactions have the same created at stamp
+  def find_by_created_at(input)
     transactions.detect { |transaction| transaction.created_at == input}
   end
 
-  def find_by_updated_at(input) #test not very robust because many transactions have the same updated at stamp
+  def find_by_updated_at(input)
     transactions.detect { |transaction| transaction.updated_at == input}
   end
 
-  # def find_all_by_id(input)
-  #   transactions.select { |transaction| transaction.id == }
-  # end
+  def find_all_by_id(input)
+    transactions.select { |transaction| transaction.id == input}
+  end
 
+  def find_all_by_invoice_id(input)
+    transactions.select { |transaction| transaction.invoice_id == input}
+  end
+
+  def find_all_by_credit_card_number(input)
+    transactions.select { |transaction| transaction.credit_card_number == input}
+  end
+
+  def find_all_by_credit_card_expiration_date(input)
+    transactions.select { |transaction| transaction.credit_card_expiration_date == input}
+  end
+
+  def find_all_by_result(input)
+    transactions.select { |transaction| transaction.result == input}
+  end
+
+  def find_all_by_created_at(input)
+    transactions.select { |transaction| transaction.created_at == input}
+  end
+
+  def find_all_by_updated_at(input)
+    transactions.select { |transaction| transaction.updated_at == input}
+  end
 end
