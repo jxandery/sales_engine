@@ -8,22 +8,21 @@ end
 
 class MerchantTest < Minitest::Test
   def test_merchant_class_exists
-    data = CSV.open("./support/merchants.csv")
-    merchant = Merchant.new(data)
+    data = {:id => 1} 
     merchant = Merchant.new(data)
     merchant.id = 1
     assert merchant
   end
 
   def test_merchant_holds_id_number
-    data = CSV.open("./support/merchants.csv")
+    data = {:id => 1}
     merchant = Merchant.new(data)
     merchant.id = 1
     assert_equal 1, merchant.id
   end
 
   def test_merchant_hold_name
-    merchant = Merchant.new(nil)
+    merchant = Merchant.new({})
     merchant.name = "NAME"
     assert "NAME", merchant.name
   end
