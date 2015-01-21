@@ -9,10 +9,11 @@ class TransactionRepositoryTest < Minitest::Test
   attr_reader :transaction_repository
 
   def setup
-    @transaction_repository = TransactionRepository.new("../data/transactions.csv")
+    @transaction_repository = TransactionRepository.new("../support/transactions_test_helper.csv")
   end
 
   def test_all_works
+    skip
     assert transaction_repository.all.length >= 10
   end
 
@@ -24,45 +25,45 @@ class TransactionRepositoryTest < Minitest::Test
   end
 
   def test_find_by_id
-    result = transaction_repository.find_by_id("11")
+    result = transaction_repository.find_by_id(2)
 
-    assert_equal 4800749911485986, result.credit_card_number
+    assert_equal 4580251236515201, result.credit_card_number
   end
 
   def test_find_by_invoice_id
-    result = transaction_repository.find_by_invoice_id("21")
+    result = transaction_repository.find_by_invoice_id(4)
 
-    assert_equal 4252153331154380, result.credit_card_number
+    assert_equal 4354495077693036, result.credit_card_number
   end
 
   def test_find_by_credit_card_number
-    result = transaction_repository.find_by_credit_card_number("4094113568951317")
+    result = transaction_repository.find_by_credit_card_number(4354495077693036)
 
-    assert_equal 30, result.invoice_id
+    assert_equal 4, result.invoice_id
   end
 
   def test_find_by_credit_card_expiration_date #No expiration dates available in csv file
-    result = transaction_repository.find_by_credit_card_expiration_date(" ")[0]
+    skip
+    result = transaction_repository.find_by_credit_card_expiration_date("")
 
-    assert_equal 654405418249632, result.credit_card_number
+    assert_equal 4654405418249632, result.credit_card_number
   end
 
   def test_find_by_result #test not very robust because many transactions have the same result
-    skip
-    result = transaction_repository.find_by_result("failed")
+    result = transaction_repository.find_by_result("success")
 
-    assert_equal 4800749911485986, result.credit_card_number
+    assert_equal 4654405418249632, result.credit_card_number
   end
 
   def test_find_by_created_at #test not very robust because many transactions have the same created at stamp
     skip
-    result = transaction_repository.find_by_created_at("2012-03-27 14:54:10 UTC")
+    result = transaction_repository.find_by_created_at(input)
     assert_equal 4354495077693036, result.credit_card_number
   end
 
   def test_find_by_updated_at #test not very robust because many transactions have the same updated at stamp
     skip
-    result = transaction_repository.find_by_updated_at("2012-03-27 14:54:11 UTC")
+    result = transaction_repository.find_by_updated_at(input)
 
     assert_equal 4822758023695469, result.credit_card_number
   end
