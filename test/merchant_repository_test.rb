@@ -36,6 +36,18 @@ class MerchantRepositoryTest < Minitest::Test
   end
 
   def test_find_by_name
-    merchant_repo.find_by_name("")
+    assert_equal 4, merchant_repo.find_by_name("Cummings-Thiel").id
+  end
+
+  def test_find_by_id
+    assert_equal "Cummings-Thiel", merchant_repo.find_by_id(4).name
+  end
+
+  def test_find_by_created_at
+    assert_equal 22, merchant_repo.find_by_created_at("2012-03-27 14:54:01 UTC").id
+  end
+  
+  def test_find_by_updated_at
+    assert_equal 1, merchant_repo.find_by_updated_at("2012-03-27 14:53:59 UTC").id
   end
 end
