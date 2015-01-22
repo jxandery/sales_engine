@@ -8,7 +8,7 @@ class InvoiceItemParser
   end
 
   def parse
-    @file = CSV.open("./data/invoice_items.csv", :headers => true, :header_converters => :symbol)
+    @file = CSV.open("../data/invoice_items.csv", :headers => true, :header_converters => :symbol)
     @file.map do |line|
       InvoiceItem.new(line)
     end

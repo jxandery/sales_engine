@@ -24,6 +24,6 @@ class InvoiceItemParserTest < Minitest::Test
   def test_merchants_have_data
     invoice_item_parser = InvoiceItemParser.new
     array = invoice_item_parser.parse
-    assert_equal "Schroeder-Jerde", array[0].name
+    assert_equal 1, array[0].id
   end
 end

@@ -24,6 +24,6 @@ class CustomerParserTest < Minitest::Test
   def test_merchants_have_data
     customer_parser = CustomerParser.new
     array = customer_parser.parse
-    assert_equal "Schroeder-Jerde", array[0].name
+    assert_equal "Joey", array[0].first_name
   end
 end

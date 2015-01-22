@@ -24,6 +24,6 @@ class TransactionParserTest < Minitest::Test
   def test_merchants_have_data
     transaction_parser = TransactionParser.new
     array = transaction_parser.parse
-    assert_equal "Schroeder-Jerde", array[0].name
+    assert_equal 1, array[0].id
   end
 end
