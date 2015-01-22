@@ -22,35 +22,58 @@ class InvoiceItemRepository
   end
 
   def find_by_id(input)
-    invoice_items.detect { |item| item.id == 21}
+    invoice_items.detect { |item| item.id == input}
   end
 
   def find_by_item_id(input)
-    invoice_items.detect { |item| item.item_id == 1849}
+    invoice_items.detect { |item| item.item_id == input}
   end
 
   def find_by_invoice_id(input)
-    invoice_items.detect { |item| item.invoice_id == 1}
+    invoice_items.detect { |item| item.invoice_id == input}
   end
 
   def find_by_quantity(input)
-    invoice_items.detect { |item| item.quantity == 4}
+    invoice_items.detect { |item| item.quantity == input}
   end
 
   def find_by_unit_price(input)
-    invoice_items.detect { |item| item.unit_price == 34423}
+    invoice_items.detect { |item| item.unit_price == input}
   end
 
-  def find_by_created_at(input) #test not very robust because many invoice_items have the same created at stamp
-    invoice_items.detect { |item| item.created_at == "2012-03-27 14:54:10 UTC"}
+  def find_by_created_at(input)
+    invoice_items.detect { |item| item.created_at == input}
   end
 
-  def find_by_updated_at(input) #test not very robust because many invoice_items have the same updated at stamp
-    invoice_items.detect { |item| item.updated_at =="2012-03-27 14:54:11 UTC"}
+  def find_by_updated_at(input)
+    invoice_items.detect { |item| item.updated_at == input}
   end
 
-  # def find_all_by_id(input)
-  #   invoice_items.select { |item| item.id == 86}
-  # end
+  def find_all_by_id(input)
+    invoice_items.select { |item| item.id == input}
+  end
 
+  def find_all_by_item_id(input)
+    invoice_items.select { |item| item.item_id == input}
+  end
+
+  def find_all_by_invoice_id(input)
+    invoice_items.select { |item| item.invoice_id == input}
+  end
+
+  def find_all_by_quantity(input)
+    invoice_items.select { |item| item.quantity == input}
+  end
+
+  def find_all_by_unit_price(input)
+    invoice_items.select { |item| item.unit_price == input}
+  end
+
+  def find_all_by_created_at(input)
+    invoice_items.select { |item| item.created_at == input}
+  end
+
+  def find_all_by_updated_at(input)
+    invoice_items.select { |item| item.updated_at == input}
+  end
 end
