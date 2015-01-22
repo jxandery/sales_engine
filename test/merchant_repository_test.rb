@@ -50,4 +50,8 @@ class MerchantRepositoryTest < Minitest::Test
   def test_find_by_updated_at
     assert_equal 1, merchant_repo.find_by_updated_at("2012-03-27 14:53:59 UTC").id
   end
+
+  def test_find_all_by_id
+    assert merchant_repo.find_all_by_created_at("2012-03-27 14:54:08 UTC")[1]
+  end
 end
