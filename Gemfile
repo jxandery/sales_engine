@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'cane'
-gem 'reek'
+gem 'pry'
 gem 'rake'
 gem 'minitest'
