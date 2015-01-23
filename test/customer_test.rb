@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../lib/customer'
+require_relative '../lib/customer'
 require 'csv'
 
 class CustomerTest < Minitest::Test
