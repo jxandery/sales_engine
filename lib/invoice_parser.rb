@@ -3,8 +3,8 @@ require 'csv'
 class InvoiceParser
   attr_reader :file
 
-  def initialize
-    @file = CSV.open("./data/invoices.csv", headers: true, header_converters: :symbol)
+  def initialize(filename)
+    @file = CSV.open("./#{filename}/invoices.csv", headers: true, header_converters: :symbol)
   end
 
   def parse
