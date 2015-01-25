@@ -3,8 +3,8 @@ require_relative 'merchant_parser'
 class MerchantRepository
 attr_reader :merchants
 
-  def initialize(engine)
-    @merchants = MerchantParser.new(engine).parse
+  def initialize(data, engine)
+    @merchants = MerchantParser.new(data, engine).parse
   end
 
   def all

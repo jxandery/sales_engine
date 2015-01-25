@@ -34,6 +34,6 @@ class SalesEngine
   end
 
   def merchant_repository
-    @merchant_repository = MerchantRepository.new(self)
+    @merchant_repository = MerchantRepository.new(data, self)
   end
 end
