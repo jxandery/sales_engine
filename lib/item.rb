@@ -1,7 +1,14 @@
 class Item
-  attr_reader :id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at
+  attr_reader :id,
+              :name, 
+              :description, 
+              :unit_price, 
+              :merchant_id, 
+              :created_at, 
+              :updated_at,
+              :engine
 
-  def initialize(data)
+  def initialize(data, engine)
     @id = data[:id].to_i
     @name = data[:name]
     @description = data[:description]
@@ -9,5 +16,6 @@ class Item
     @merchant_id = data[:merchant_id].to_i
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
+    @engine = engine
   end
 end
