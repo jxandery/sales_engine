@@ -1,12 +1,15 @@
 require_relative 'customer'
+require_relative 'customer_parser'
 
 class CustomerRepository
 
   attr_reader :customers,
-              :file
+              :file,
+              :engine
 
   def initialize(filename, engine)
     @file = filename
+    @engine = engine
   end
 
   def parse

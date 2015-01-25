@@ -1,12 +1,15 @@
 require_relative 'transaction'
+require_relative 'transaction_parser'
 
 class TransactionRepository
 
   attr_reader :transactions,
-              :file
+              :file,
+              :engine
 
   def initialize(filename, engine)
     @file = filename
+    @engine = engine
   end
 
   def parse

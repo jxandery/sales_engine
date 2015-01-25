@@ -10,7 +10,8 @@ class TransactionRepositoryTest < Minitest::Test
   attr_reader :transaction_repository
 
   def setup
-    @transaction_repository = TransactionRepository.new("../support/transactions_test_helper.csv")
+    @transaction_repository = TransactionRepository.new("support", "")
+    transaction_repository.parse
   end
 
   def test_all_works
