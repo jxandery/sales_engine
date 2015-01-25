@@ -6,7 +6,8 @@ class ItemRepositoryTest < Minitest::Test
   attr_reader :item_repo
 
   def setup
-    @item_repo = ItemRepository.new
+    @item_repo = ItemRepository.new('data', '')
+    item_repo.parse
   end
 
   def test_repo_exists

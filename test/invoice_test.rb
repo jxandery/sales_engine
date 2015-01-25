@@ -6,7 +6,7 @@ class InvoiceTest < Minitest::Test
   attr_reader :invoice
 
   def setup
-    @invoice = Invoice.new({:name => "name"})
+    @invoice = Invoice.new({:name => "name"}, "")
   end
 
   def test_invoice_exists

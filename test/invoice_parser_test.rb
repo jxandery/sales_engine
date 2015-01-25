@@ -6,7 +6,7 @@ class InvoiceParserTest < Minitest::Test
   attr_reader :invoice_parser
 
   def setup
-    @invoice_parser = InvoiceParser.new("data", "")
+    @invoice_parser = InvoiceParser.new('data', "")
   end
 
   def test_invoice_parser_exitsts
