@@ -1,12 +1,19 @@
 require_relative 'merchant_parser'
 
 class MerchantRepository
-attr_reader :merchants
+attr_reader :merchants,
+            :file,
+            :engine
 
   def initialize(data, engine)
-    @merchants = MerchantParser.new(data, engine).parse
+    @engine = engine
+    @file = data
   end
 
+  def parse
+    @merchants = MerchantParser.new(file, engine).parse
+  end
+  
   def all
     merchants
   end
