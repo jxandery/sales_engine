@@ -3,14 +3,16 @@ require 'csv'
 
 class ItemParser
   attr_reader :items,
-              :engine
+              :engine,
+              :data
 
-  def initialize(engine)
+  def initialize(data, engine)
     @engine = engine
+    @data = data
   end
 
   def parse
-    file = CSV.open("./data/items.csv", headers: true, header_converters: :symbol)
+    file = CSV.open("./#{data}/items.csv", headers: true, header_converters: :symbol)
     @items = file.map do |row|
       Item.new(row, engine)
     end

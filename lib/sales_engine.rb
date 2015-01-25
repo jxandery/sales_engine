@@ -26,7 +26,7 @@ class SalesEngine
   end
 
   def item_repository
-    @item_repository = ItemRepository.new(self)
+    @item_repository = ItemRepository.new(data, self)
   end
 
   def transaction_repository
