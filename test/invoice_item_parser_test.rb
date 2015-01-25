@@ -7,13 +7,13 @@ require_relative '../lib/invoice_item_parser.rb'
 class InvoiceItemParserTest < Minitest::Test
 
   attr_reader :invoice_item_parser
-  
+
   def setup
-    invoice_item_parser = InvoiceItemParser.new("data", "")
+    @invoice_item_parser = InvoiceItemParser.new("data", "")
   end
 
   def test_it_exists
-    assert invoice_item_parser
+    assert invoice_item_parser.is_a?(InvoiceItemParser)
   end
 
   def test_it_reads
@@ -25,7 +25,7 @@ class InvoiceItemParserTest < Minitest::Test
     assert invoice_item_parser.parse
   end
 
-  def test_merchants_have_data
+  def test_invoice_item_have_data
     array = invoice_item_parser.parse
     assert_equal 1, array[0].id
   end
