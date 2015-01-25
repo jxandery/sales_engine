@@ -6,7 +6,7 @@ class InvoiceRepoTest < Minitest::Test
   attr_reader :invoice_repo
 
   def setup
-    @invoice_repo = InvoiceRepository.new
+    @invoice_repo = InvoiceRepository.new('data', '')
     invoice_repo.parse
   end
 

@@ -6,7 +6,7 @@ class ItemParserTest < Minitest::Test
   attr_reader :item_parser
 
   def setup
-    @item_parser = ItemParser.new
+    @item_parser = ItemParser.new("data",'')
   end
 
   def test_parser_exists

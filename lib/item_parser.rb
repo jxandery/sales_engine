@@ -8,12 +8,12 @@ class ItemParser
 
   def initialize(file, engine)
     @engine = engine
-    @file = data
+    @file = file
   end
 
   def parse
-    file = CSV.open("./#{data}/items.csv", headers: true, header_converters: :symbol)
-    @items = file.map do |row|
+    items = CSV.open("./#{file}/items.csv", headers: true, header_converters: :symbol)
+    @items = items.map do |row|
       Item.new(row, engine)
     end
   end

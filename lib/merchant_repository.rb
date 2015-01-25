@@ -5,13 +5,14 @@ attr_reader :merchants,
             :file,
             :engine
 
-  def initialize(data, engine)
+  def initialize(filename, engine)
     @engine = engine
-    @file = data
+    @file = filename
   end
 
   def parse
-    @merchants = MerchantParser.new(file, engine).parse
+    merchants = MerchantParser.new(file, engine)
+    @merchants = merchants.parse
   end
   
   def all

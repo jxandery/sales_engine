@@ -6,7 +6,8 @@ class MerchantRepositoryTest < Minitest::Test
   attr_reader :merchant_repo
 
   def setup
-    @merchant_repo = MerchantRepository.new
+    @merchant_repo = MerchantRepository.new('data', '')
+    merchant_repo.parse
   end
 
   def test_repo_exists
@@ -18,6 +19,7 @@ class MerchantRepositoryTest < Minitest::Test
   end
 
   def test_repos_merchants_are_really_merchants
+    merchant_repo.parse
     assert merchant_repo.merchants[0].is_a?(Merchant)
   end
   
