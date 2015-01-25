@@ -22,7 +22,7 @@ class SalesEngine
   end
 
   def invoice_repository
-    @invoice_repository = InvoiceRepository.new(self)
+    @invoice_repository = InvoiceRepository.new(data, self)
   end
 
   def item_repository
