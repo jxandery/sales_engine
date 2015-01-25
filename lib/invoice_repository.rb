@@ -2,10 +2,17 @@ require 'pry'
 require_relative 'invoice_parser'
 
 class InvoiceRepository
-  attr_accessor :invoices
+  attr_accessor :invoices,
+                :file,
+                :engine
+
+  def initialize(filename, engine)
+    @file = filename
+    @engine = engine
+  end
 
   def parse
-    parser = InvoiceParser.new
+    parser = InvoiceParser.new(file, engine)
     @invoices = parser.parse
   end
 

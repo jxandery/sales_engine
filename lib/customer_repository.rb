@@ -2,15 +2,16 @@ require_relative 'customer'
 
 class CustomerRepository
 
-  attr_reader :customers
+  attr_reader :customers,
+              :file
 
-  def initialize(filename)
-    from_csv(filename)
+  def initialize(filename, engine)
+    @file = filename
   end
 
-  def from_csv(filename)
-    rows = CSV.open(filename, headers: true, header_converters: :symbol)
-    @customers = rows.map {|row| Customer.new(row)}
+  def parse
+    parser = CustomerParser.new(file, engine)
+    @customers = parser.parse
   end
 
   def all

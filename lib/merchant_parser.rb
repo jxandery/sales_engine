@@ -2,15 +2,22 @@ require 'csv'
 require_relative "../lib/merchant"
 
 class MerchantParser
-  attr_reader :file
+  attr_reader :file,
+              :engine,
  
-  def initialize
+  def initialize(filename, engine)
+    @engine = engine
+    @file = filename
   end
 
   def parse
-    @file = CSV.open("./data/merchants.csv", :headers => true, :header_converters => :symbol)
-    @file.map do |line|
-      Merchant.new(line)
+    data = read_file
+    data.map do |line|
+      Merchant.new(line, engine)
     end
+  end
+
+  def read_file
+    CSV.open("./#{file}/merchants.csv", :headers => true, :header_converters => :symbol)
   end
 end

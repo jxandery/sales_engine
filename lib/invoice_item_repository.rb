@@ -2,15 +2,16 @@ require_relative 'invoice_item'
 
 class InvoiceItemRepository
 
-  attr_reader :invoice_items
+  attr_reader :invoice_items,
+              :file
 
-  def initialize(filename)
-    from_csv(filename)
+  def initialize(filename, engine)
+    @file = filename
   end
 
-  def from_csv(filename)
-    rows = CSV.open(filename, headers: true, header_converters: :symbol)
-    @invoice_items = rows.map {|row| InvoiceItem.new(row)}
+  def parse
+    parser = InvoiceItemParser.new(file, engine)
+    @invoice_items = parser.parse
   end
 
   def all
