@@ -1,12 +1,15 @@
 require_relative 'invoice_item'
+require_relative 'invoice_item_parser'
 
 class InvoiceItemRepository
 
   attr_reader :invoice_items,
-              :file
+              :file,
+              :engine
 
   def initialize(filename, engine)
     @file = filename
+    @engine = engine
   end
 
   def parse

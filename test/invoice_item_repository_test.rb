@@ -9,7 +9,8 @@ class InvoiceItemRepositoryTest < Minitest::Test
     attr_reader :invoice_item_repository
 
     def setup
-      @invoice_item_repository = InvoiceItemRepository.new("../support/invoice_item_test_helper.csv")
+      @invoice_item_repository = InvoiceItemRepository.new("support", "")
+      invoice_item_repository.parse
     end
 
     def test_it_all_works
@@ -17,7 +18,7 @@ class InvoiceItemRepositoryTest < Minitest::Test
       assert invoice_item_repository.all.length >= 10
     end
 
-    def test_random
+    def test_random()
       random = invoice_item_repository.random
       random2 = invoice_item_repository.random
 
