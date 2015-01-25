@@ -2,15 +2,16 @@ require_relative 'transaction'
 
 class TransactionRepository
 
-  attr_reader :transactions
+  attr_reader :transactions,
+              :file
 
-  def initialize(filename)
-    from_csv(filename)
+  def initialize(filename, engine)
+    @file = filename
   end
 
-  def from_csv(filename)
-    rows = CSV.open(filename, headers: true, header_converters: :symbol)
-    @transactions = rows.map {|row| Transaction.new(row)}
+  def parse
+    parser = TransactionParser.new(file, engine)
+    @transactions = parser.parse
   end
 
   def all
