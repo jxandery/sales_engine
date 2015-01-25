@@ -9,7 +9,8 @@ class CustomerRepositoryTest < Minitest::Test
   attr_reader :customer_repository
 
   def setup
-    @customer_repository = CustomerRepository.new("../support/customer_test_helper.csv")
+    @customer_repository = CustomerRepository.new("support", "")
+    customer_repository.parse
   end
 
   def test_all_works
