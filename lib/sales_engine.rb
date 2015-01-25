@@ -14,11 +14,11 @@ class SalesEngine
   end
 
   def customer_repository 
-   #@customer_repository = CustomerRepository.new(data, self)
+   @customer_repository = CustomerRepository.new(data, self)
   end
 
   def invoice_item_repository
-   # @invoice_item_repository = InvoiceItemRepository.new(data, self)
+   @invoice_item_repository = InvoiceItemRepository.new(data, self)
   end
 
   def invoice_repository
@@ -30,7 +30,7 @@ class SalesEngine
   end
 
   def transaction_repository
-    #@transaction_repository = TransactionRepository.new(data, self)
+    @transaction_repository = TransactionRepository.new(data, self)
   end
 
   def merchant_repository
