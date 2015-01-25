@@ -5,12 +5,12 @@ class InvoiceRepository
   attr_accessor :invoices,
                 :file
 
-  def initialize(filename)
+  def initialize(filename, engine)
     @file = filename
   end
 
   def parse
-    parser = InvoiceParser.new(file)
+    parser = InvoiceParser.new(file, engine)
     @invoices = parser.parse
   end
 
