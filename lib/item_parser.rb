@@ -4,11 +4,11 @@ require 'csv'
 class ItemParser
   attr_reader :items,
               :engine,
-              :data
+              :file
 
-  def initialize(data, engine)
+  def initialize(file, engine)
     @engine = engine
-    @data = data
+    @file = data
   end
 
   def parse

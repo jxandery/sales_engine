@@ -1,10 +1,17 @@
 require_relative 'item_parser'
 
 class ItemRepository
-  attr_reader :items
+  attr_reader :items,
+              :engine
 
-  def initialize(data, engine)
-    @items = ItemParser.new(data, engine).parse
+  def initialize(filename, engine)
+    @file = filename
+    @engine = engine
+  end
+
+  def parse
+    parser = ItemParser.new(file, engine)
+    @items = parser.parse
   end
 
   def all
