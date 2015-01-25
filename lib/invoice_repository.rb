@@ -3,14 +3,16 @@ require_relative 'invoice_parser'
 
 class InvoiceRepository
   attr_accessor :invoices,
-                :file
+                :file,
+                :engine
 
-  def initialize(filename)
+  def initialize(filename, engine)
     @file = filename
+    @engine = engine
   end
 
   def parse
-    parser = InvoiceParser.new(file)
+    parser = InvoiceParser.new(file, engine)
     @invoices = parser.parse
   end
 
