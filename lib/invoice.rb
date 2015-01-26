@@ -15,4 +15,9 @@ class Invoice
     @created_at = data[:created_at]
     @engine = engine
   end
+
+  def transactions
+    transactions = engine.transaction_repository.parse
+    transactions.select {|transaction| transaction.invoice_id == id}
+  end
 end
