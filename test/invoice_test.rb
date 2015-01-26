@@ -6,7 +6,7 @@ class InvoiceTest < Minitest::Test
   attr_reader :invoice
 
   def setup
-    @invoice = Invoice.new({:name => "name"}, "")
+    @invoice = Invoice.new({:id => "1"}, "")
   end
 
   def test_invoice_exists
@@ -14,10 +14,10 @@ class InvoiceTest < Minitest::Test
   end
   
   def test_it_holds_attributes
-    assert invoice.name
+    assert invoice.id
   end
 
   def test_takes_in_hash_and_sets_data
-    assert_equal "name", invoice.name
+    assert_equal 1, invoice.id
   end
 end

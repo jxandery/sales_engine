@@ -1,5 +1,5 @@
 class Invoice
-  attr_reader :name, 
+  attr_reader :id, 
               :customer_id, 
               :merchant_id, 
               :status, 
@@ -8,7 +8,7 @@ class Invoice
               :engine
 
   def initialize(data, engine)
-    @name = data[:name]
+    @id = data[:id].to_i
     @customer_id = data[:customer_id]
     @merchant_id = data[:merchant_id]
     @status = data[:status]
