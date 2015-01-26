@@ -20,6 +20,7 @@ class TransactionRepositoryTest < Minitest::Test
   end
 
   def test_random
+    skip
     random = transaction_repository.random
     random2 = transaction_repository.random
 
