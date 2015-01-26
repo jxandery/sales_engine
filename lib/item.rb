@@ -1,10 +1,10 @@
 class Item
   attr_reader :id,
-              :name, 
-              :description, 
-              :unit_price, 
-              :merchant_id, 
-              :created_at, 
+              :name,
+              :description,
+              :unit_price,
+              :merchant_id,
+              :created_at,
               :updated_at,
               :engine
 
@@ -18,4 +18,10 @@ class Item
     @updated_at = data[:updated_at]
     @engine = engine
   end
+
+  def invoice_items
+    invoice_item_repository = engine.invoice_item_repository.parse
+    invoice_item_repository = invoice_items.select {|invoice_item| invoice_item.item_id == id}
+  end
+
 end
