@@ -12,6 +12,10 @@ class TransactionRepository
     @engine = engine
   end
 
+  def inspect
+    "#<#{self.class} #{@transactions.size} rows>"
+  end
+
   def parse
     parser = TransactionParser.new(file, engine)
     @transactions = parser.parse

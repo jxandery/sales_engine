@@ -11,6 +11,10 @@ class InvoiceRepository
     @engine = engine
   end
 
+  def inspect
+    "#<#{self.class} #{@invoices.size} rows>"
+  end
+
   def parse
     parser = InvoiceParser.new(file, engine)
     @invoices = parser.parse
