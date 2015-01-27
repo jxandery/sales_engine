@@ -10,6 +10,10 @@ class ItemRepository
     @engine = engine
   end
 
+  def inspect
+    "#<#{self.class} #{@merchants.size} rows>"
+  end
+  
   def parse
     parser = ItemParser.new(file, engine)
     @items = parser.parse
@@ -26,7 +30,7 @@ class ItemRepository
   def find_by_name(input)
     items.detect {|item| item.name == input}
   end
-  
+
   def find_by_id(input)
     items.detect {|item| item.id == input.to_i}
   end
@@ -54,7 +58,7 @@ class ItemRepository
   def find_all_by_name(input)
     items.select {|item| item.name == input}
   end
-  
+
   def find_all_by_id(input)
     items.select {|item| item.id == input.to_i}
   end

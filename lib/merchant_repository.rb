@@ -10,11 +10,15 @@ attr_reader :merchants,
     @file = filename
   end
 
+  def inspect
+    "#<#{self.class} #{@merchants.size} rows>"
+  end
+  
   def parse
     merchants = MerchantParser.new(file, engine)
     @merchants = merchants.parse
   end
-  
+
   def all
     merchants
   end
@@ -26,7 +30,7 @@ attr_reader :merchants,
   def find_by_name(name)
     merchants.detect {|merchant| merchant.name == name}
   end
-  
+
   def find_by_id(id_num)
     merchants.detect {|merchant| merchant.id == id_num}
   end
@@ -42,7 +46,7 @@ attr_reader :merchants,
   def find_all_by_name(name)
     merchants.select {|merchant| merchant.name == name}
   end
-  
+
   def find_all_by_id(id_num)
     merchants.select {|merchant| merchant.id == id_num}
   end
