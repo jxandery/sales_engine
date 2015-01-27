@@ -1,3 +1,4 @@
+require 'pry'
 class Transaction
 
   attr_reader :id,
@@ -18,6 +19,14 @@ class Transaction
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
     @engine = engine
+  end
+
+  # invoice returns an instance of Invoice associated with this object
+
+  def invoice
+    invoices = engine.invoice_repository.parse
+
+    invoices.detect {|invoice| invoice.id == invoice_id}
   end
 
 end
