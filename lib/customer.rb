@@ -16,4 +16,9 @@ class Customer
     @engine = engine
   end
 
+  def invoice
+    invoices = engine.invoice_repository.parse
+
+    invoices.detect {|invoice| invoice.customer_id == id}
+  end
 end

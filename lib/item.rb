@@ -1,10 +1,10 @@
 class Item
   attr_reader :id,
-              :name, 
-              :description, 
-              :unit_price, 
-              :merchant_id, 
-              :created_at, 
+              :name,
+              :description,
+              :unit_price,
+              :merchant_id,
+              :created_at,
               :updated_at,
               :engine
 
@@ -17,5 +17,19 @@ class Item
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
     @engine = engine
+  end
+
+# invoice_items returns a collection of InvoiceItems associated with this object
+
+  def invoice_items
+    invoice_items = engine.invoice_item_repository.parse
+    invoice_items.select {|invoice_item| invoice_item.item_id == id}
+  end
+
+  # merchant returns an instance of Merchant associated with this object
+
+  def merchant
+    merchants = engine.merchant_repository.parse
+    merchants.detect {|merchant| merchant.id == merchant_id}
   end
 end
