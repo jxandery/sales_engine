@@ -8,12 +8,13 @@ attr_reader :merchants,
   def initialize(filename, engine)
     @engine = engine
     @file = filename
+    parse
   end
 
   def inspect
     "#<#{self.class} #{@merchants.size} rows>"
   end
-  
+
   def parse
     merchants = MerchantParser.new(file, engine)
     @merchants = merchants.parse
@@ -59,6 +60,9 @@ attr_reader :merchants,
     merchants.select {|merchant| merchant.updated_at == date}
   end
 
-
+  def most_revenue(x)
+    #sort by revenue (largest to smallest)
+    #select first (x)
+  end
 
 end

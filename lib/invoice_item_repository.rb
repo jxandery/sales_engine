@@ -10,6 +10,7 @@ class InvoiceItemRepository
   def initialize(filename, engine)
     @file = filename
     @engine = engine
+    parse
   end
 
   def inspect
