@@ -20,4 +20,18 @@ class InvoiceItem
     @engine = engine
   end
 
+  def invoice
+    repo = engine.invoice_repository
+    repo.parse
+    invoices = repo.invoices
+    invoices.detect {|invoice| invoice.id == invoice_id}
+  end
+
+  def item
+    repo = engine.item_repository
+    repo.parse
+    items = repo.items
+    items.detect {|item| item.id == item_id}
+  end
+
 end
