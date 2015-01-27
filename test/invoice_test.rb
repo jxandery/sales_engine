@@ -8,7 +8,7 @@ class InvoiceTest < Minitest::Test
 
   def setup
     fake_sales_engine = SalesEngine.new
-    @invoice = Invoice.new({:id => "1"}, fake_sales_engine)
+    @invoice = Invoice.new({:merchant_id => 1, :id => "1", :customer_id => 1}, fake_sales_engine)
   end
 
   def test_invoice_exists
@@ -33,5 +33,13 @@ class InvoiceTest < Minitest::Test
 
   def test_it_returns_associated_items_via_invoice_items
     assert 1, invoice.items[0].id
+  end
+
+  def test_customer_returns_instance_of_customer
+    assert_equal "Joey", invoice.customer.first_name
+  end
+
+  def test_merchant_returns_instance_of_merchant
+    assert_equal 1, invoice.merchant.id
   end
 end

@@ -31,4 +31,14 @@ class Invoice
       engine.item_repository.parse.select {|item| item.id == invoice_item.item_id}
     end
   end
+  
+  def customer
+    customers = engine.customer_repository.parse
+    customers.detect {|customer| customer.id == customer_id}
+  end
+
+  def merchant
+    merchants = engine.merchant_repository.parse
+    merchants.detect {|merchant| merchant.id == merchant_id}
+  end
 end
