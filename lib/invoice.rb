@@ -9,8 +9,8 @@ class Invoice
 
   def initialize(data, engine)
     @id = data[:id].to_i
-    @customer_id = data[:customer_id]
-    @merchant_id = data[:merchant_id]
+    @customer_id = data[:customer_id].to_i
+    @merchant_id = data[:merchant_id].to_i
     @status = data[:status]
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
@@ -32,7 +32,7 @@ class Invoice
       engine.item_repository.parse.select {|item| item.id == invoice_item.item_id}
     end
   end
-  
+
   def customer
     customers = engine.customer_repository.parse
     customers.detect {|customer| customer.id == customer_id}

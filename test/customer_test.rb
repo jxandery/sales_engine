@@ -45,7 +45,7 @@ class CustomerTest < Minitest::Test
   end
 
   # invoices returns a collection of Invoice instances associated with this object.
-  def test_invoice_method_returns_collection_of_invoices_associated_with_customers
-    assert_equal 12, Customer.new({:id => 12}, fake_sales_engine).invoice.customer_id
+  def test_invoices_method_returns_collection_of_invoices_associated_with_customers
+    assert_equal 52, Customer.new({:id => 12}, fake_sales_engine).invoices[0].id
   end
 end
