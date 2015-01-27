@@ -49,6 +49,10 @@ class MerchantTest < Minitest::Test
     assert_equal 26, Merchant.new({:id => 26}, fake_sales_engine).items[0].merchant_id
   end
 
+  def test_revenue_returns_a_number
+    assert Merchant.new({:id => 1}, fake_sales_engine).revenue.is_a?(Fixnum)
+  end
+
   # items returns a collection of Item instances associated with that merchant for the products they sell
   # invoices returns a collection of Invoice instances associated with that merchant from their known orders
 

@@ -10,12 +10,13 @@ class CustomerRepository
   def initialize(filename, engine)
     @file = filename
     @engine = engine
+    parse
   end
 
   def inspect
     "#<#{self.class} #{@customers.size} rows>"
   end
-  
+
   def parse
     parser = CustomerParser.new(file, engine)
     @customers = parser.parse

@@ -18,9 +18,21 @@ class Merchant
     items.select {|item| item.merchant_id == id}
   end
 
-  def invoice
+  def invoices
     invoices = engine.invoice_repository.parse
     invoices.select {|invoice| invoice.merchant_id == id}
+  end
+
+  def revenue
+    items.inject(0) do |item_revenue, item|
+      item_revenue.+(item_adder(item))
+    end
+  end
+
+  def item_adder(item)
+    item.invoice_items.inject(0) do |item_revenue, invoice_item|
+      item_revenue.+((invoice_item.quantity * invoice_item.unit_price))
+    end
   end
 
 
