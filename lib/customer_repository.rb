@@ -15,7 +15,7 @@ class CustomerRepository
   def inspect
     "#<#{self.class} #{@customers.size} rows>"
   end
-
+  
   def parse
     parser = CustomerParser.new(file, engine)
     @customers = parser.parse
