@@ -26,4 +26,12 @@ class InvoiceTest < Minitest::Test
   def test_transactions_returns_collection_of_associated_transactions
     assert 1, invoice.transactions[0].id
   end
+
+  def test_invoice_items_returns_collection_of_associated_invoice_items
+    assert 1, invoice.invoice_items[0].id
+  end
+
+  def test_it_returns_associated_items_via_invoice_items
+    assert 1, invoice.items[0].id
+  end
 end
