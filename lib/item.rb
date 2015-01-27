@@ -19,9 +19,17 @@ class Item
     @engine = engine
   end
 
+# invoice_items returns a collection of InvoiceItems associated with this object
+
   def invoice_items
-    invoice_item_repository = engine.invoice_item_repository.parse
-    invoice_item_repository = invoice_items.select {|invoice_item| invoice_item.item_id == id}
+    invoice_items = engine.invoice_item_repository.parse
+    invoice_items.select {|invoice_item| invoice_item.item_id == id}
   end
 
+  # merchant returns an instance of Merchant associated with this object
+
+  def merchant
+    merchants = engine.merchant_repository.parse
+    merchants.detect {|merchant| merchant.id == merchant_id}
+  end
 end
