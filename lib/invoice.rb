@@ -27,5 +27,8 @@ class Invoice
   end
 
   def items
+    invoice_items.each do |invoice_item|
+      engine.item_repository.parse.select {|item| item.id == invoice_item.item_id}
+    end
   end
 end
