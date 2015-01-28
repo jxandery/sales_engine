@@ -82,7 +82,7 @@ class CustomerRepositoryTest < Minitest::Test
   def test_find_all_by_updated_at
     result = customer_repository.find_all_by_updated_at("2012-03-27 14:54:10 UTC")
 
-    assert_equal "Nader", result[-1].last_name
+    assert_equal "Daugherty", result[-1].last_name
   end
 
 end
