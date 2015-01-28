@@ -6,7 +6,7 @@ class InvoiceParser
               :engine
 
   def initialize(filename, engine)
-    @file = CSV.open("./#{filename}/invoices.csv", headers: true, header_converters: :symbol)
+    @file = CSV.open("#{filename}/invoices.csv", headers: true, header_converters: :symbol)
     @engine = engine
   end
 

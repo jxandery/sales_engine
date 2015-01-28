@@ -8,7 +8,7 @@ require_relative 'merchant_repository'
 class SalesEngine
   attr_reader :data
 
-  def initialize(data = 'data')
+  def initialize(data = './data')
     @data = data
   end
 

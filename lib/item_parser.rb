@@ -12,7 +12,7 @@ class ItemParser
   end
 
   def parse
-    items_info = CSV.open("./#{file}/items.csv", headers: true, header_converters: :symbol)
+    items_info = CSV.open("#{file}/items.csv", headers: true, header_converters: :symbol)
     # CSV is not an array but it behaves like an array and can be used as such
     @items = items_info.map do |row|
       Item.new(row, engine)
