@@ -41,7 +41,7 @@ class ItemRepository
   end
 
   def find_by_unit_price(number)
-    items.detect {|item| item.unit_price == number}
+    items.detect {|item| item.unit_price == BigDecimal.new(number) / BigDecimal(100)}
   end
 
   def find_by_merchant_id(number)
@@ -69,7 +69,7 @@ class ItemRepository
   end
 
   def find_all_by_unit_price(number)
-    items.select {|item| item.unit_price == number}
+    items.select {|item| item.unit_price == BigDecimal.new(number) / BigDecimal(100)}
   end
 
   def find_all_by_merchant_id(number)
