@@ -30,10 +30,10 @@ class ItemRepositoryTest < Minitest::Test
   def test_there_is_an_all_method
     assert item_repo.all
   end
-  
+
   def test_all_gives_all_items_in_array
     skip
-    assert_equal item_repo.items > 10 
+    assert_equal item_repo.items > 10
   end
 
   def test_find_by_name_works
@@ -48,8 +48,8 @@ class ItemRepositoryTest < Minitest::Test
     assert_equal 1, item_repo.find_by_description("Nihil autem sit odio inventore deleniti. Est laudantium ratione distinctio laborum. Minus voluptatem nesciunt assumenda dicta voluptatum porro.").id
   end
 
-  def test_find_by_unit
-    assert_equal 1, item_repo.find_by_unit(75107).id
+  def test_find_by_unit_price
+    assert_equal 1, item_repo.find_by_unit_price(75107).id
   end
 
   def test_find_by_merchant_id
