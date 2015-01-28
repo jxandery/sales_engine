@@ -7,7 +7,6 @@ class MerchantRepositoryTest < Minitest::Test
 
   def setup
     @merchant_repo = MerchantRepository.new('support', '')
-    merchant_repo.parse
   end
 
   def test_repo_exists
@@ -54,7 +53,7 @@ class MerchantRepositoryTest < Minitest::Test
   end
 
   def test_find_all_by_id
-    assert merchant_repo.find_all_by_created_at("2012-03-27 14:54:08 UTC")[1]
+    assert_equal 1,  merchant_repo.find_all_by_id(1)[0].id
   end
 
   def test_most_revenue_for_top_x_merchants

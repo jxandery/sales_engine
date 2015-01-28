@@ -98,13 +98,13 @@ class TransactionRepositoryTest < Minitest::Test
   def test_find_all_by_result
     result = transaction_repository.find_all_by_result("success")
 
-    assert_equal 5, result[-1].id
+    assert_equal 25, result[-1].id
   end
 
   def test_find_all_by_created_at
     result = transaction_repository.find_all_by_created_at("2012-03-27 14:54:10 UTC")
 
-    assert_equal 4, result[-2].id
+    assert_equal 21, result[-2].id
   end
 
   def test_find_all_by_updated_at

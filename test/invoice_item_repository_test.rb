@@ -89,7 +89,7 @@ class InvoiceItemRepositoryTest < Minitest::Test
     def test_find_all_by_quantity
       result = invoice_item_repository.find_all_by_quantity(7)
 
-      assert_equal 5, result[-1].id
+      assert_equal 14, result[-1].id
     end
 
     def test_find_all_by_unit_price
@@ -107,6 +107,6 @@ class InvoiceItemRepositoryTest < Minitest::Test
     def test_find_all_by_updated_at
       result = invoice_item_repository.find_all_by_updated_at("2012-03-27 14:54:09 UTC")
 
-      assert_equal 4, result[-2].id
+      assert_equal 14, result[-2].id
     end
 end
