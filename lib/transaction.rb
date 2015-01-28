@@ -29,4 +29,7 @@ class Transaction
     invoices.detect {|invoice| invoice.id == invoice_id}
   end
 
+  def successful?
+    result == 'success'
+  end
 end

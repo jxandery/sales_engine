@@ -41,7 +41,7 @@ class InvoiceItemTest < Minitest::Test
   def test_valid_unit_price
     invoice_item_example = InvoiceItem.new(example,"")
 
-    assert_equal 13635, invoice_item_example.unit_price
+    assert invoice_item_example.unit_price.is_a?(BigDecimal)
   end
 
   def test_valid_created_at

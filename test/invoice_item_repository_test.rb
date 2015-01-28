@@ -51,7 +51,7 @@ class InvoiceItemRepositoryTest < Minitest::Test
     end
 
     def test_find_by_unit_price #test not very robust because many invoice items have the same unit price
-      result = invoice_item_repository.find_by_unit_price(23324)
+      result = invoice_item_repository.find_by_unit_price(233.24)
 
       assert_equal 2, result.id
     end
@@ -93,7 +93,7 @@ class InvoiceItemRepositoryTest < Minitest::Test
     end
 
     def test_find_all_by_unit_price
-      result = invoice_item_repository.find_all_by_unit_price(34873)
+      result = invoice_item_repository.find_all_by_unit_price(348.73)
 
       assert_equal 3, result[0].id
     end

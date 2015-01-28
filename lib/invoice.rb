@@ -42,4 +42,8 @@ class Invoice
     merchants = engine.merchant_repository.parse
     merchants.detect {|merchant| merchant.id == merchant_id}
   end
+
+  def amount
+    invoice_items.inject(0) {|sum, invoice_item| sum + (invoice_item.unit_price * invoice_item.quantity)}
+  end
 end
