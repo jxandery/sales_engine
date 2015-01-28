@@ -1,5 +1,5 @@
 class Invoice
- attr_reader :id,
+ attr_reader  :id,
               :customer_id,
               :merchant_id,
               :status,
@@ -28,8 +28,8 @@ class Invoice
   end
 
   def items
-    invoice_items.each do |invoice_item|
-      engine.item_repository.parse.select {|item| item.id == invoice_item.item_id}
+    invoice_items.map do |invoice_item|
+      engine.item_repository.find_by_id(invoice_item.item_id)
     end
   end
 

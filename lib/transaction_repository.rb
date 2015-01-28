@@ -40,7 +40,7 @@ class TransactionRepository
   end
 
   def find_by_credit_card_number(input)
-    transactions.detect { |transaction| transaction.credit_card_number == input}
+    transactions.detect { |transaction| transaction.credit_card_number == input.to_i}
   end
 
   def find_by_credit_card_expiration_date(input) #No expiration dates available in csv file

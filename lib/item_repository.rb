@@ -40,8 +40,8 @@ class ItemRepository
     items.detect {|item| item.description == input}
   end
 
-  def find_by_unit(number)
-    items.detect {|item| item.unit_price == number.to_i}
+  def find_by_unit_price(number)
+    items.detect {|item| item.unit_price == number}
   end
 
   def find_by_merchant_id(number)
@@ -68,8 +68,8 @@ class ItemRepository
     items.select {|item| item.description == input}
   end
 
-  def find_all_by_unit(number)
-    items.select {|item| item.unit_price == number.to_i}
+  def find_all_by_unit_price(number)
+    items.select {|item| item.unit_price == number}
   end
 
   def find_all_by_merchant_id(number)
