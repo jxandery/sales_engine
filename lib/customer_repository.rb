@@ -42,11 +42,11 @@ class CustomerRepository
     customers.detect { |customer| customer.last_name == input}
   end
 
-  def find_by_created_at(input) #test not very robust because many customers have the same created at stamp
+  def find_by_created_at(input)
     customers.detect { |customer| customer.created_at == input}
   end
 
-  def find_by_updated_at(input) #test not very robust because many customers have the same updated at stamp
+  def find_by_updated_at(input)
     customers.detect { |customer| customer.updated_at ==  input}
   end
 

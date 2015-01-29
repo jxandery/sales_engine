@@ -1,3 +1,5 @@
+require 'date'
+
 class Invoice
  attr_reader  :id,
               :customer_id,
@@ -24,7 +26,9 @@ class Invoice
 
   def invoice_items
     invoice_item_collection = engine.invoice_item_repository.parse
-    invoice_item_collection.select {|invoice_item| invoice_item.invoice_id == id}
+    invoice_item_collection.select do |invoice_item|
+      invoice_item.invoice_id == id
+    end
   end
 
   def items
@@ -44,6 +48,8 @@ class Invoice
   end
 
   def amount
-    invoice_items.inject(0) {|sum, invoice_item| sum + (invoice_item.unit_price * invoice_item.quantity)}
+    invoice_items.inject(0) do |sum, invoice_item|
+      sum + (invoice_item.unit_price * invoice_item.quantity)
+    end
   end
 end

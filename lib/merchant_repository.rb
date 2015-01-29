@@ -59,11 +59,4 @@ attr_reader :merchants,
   def find_all_by_updated_at(date)
     merchants.select {|merchant| merchant.updated_at == date}
   end
-
-  def most_revenue(x)
-    merchants.sort_by {|merchant| merchant.revenue}.reverse[0...x]
-    #sort by revenue (largest to smallest)
-    #select first (x)
-  end
-
 end

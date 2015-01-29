@@ -6,7 +6,8 @@ class CustomerParser
               :engine
 
   def initialize(filename, engine)
-    @file = CSV.open("#{filename}/customers.csv", headers: true, header_converters: :symbol)
+    read = "#{filename}/customers.csv"
+    @file = CSV.open(read, headers: true, header_converters: :symbol)
     @engine = engine
   end
 

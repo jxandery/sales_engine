@@ -24,10 +24,19 @@ class Merchant
   end
 
   def paid_invoices
-    invoices.select {|invoice| invoice.transactions.any? {|transaction| transaction.successful?}}
+    invoices.select do |invoice|
+      invoice.transactions.any? {|transaction| transaction.successful?}
+    end
   end
 
-  def revenue
-    paid_invoices.inject(0) {|revenue, invoice| revenue + invoice.amount }
+  def revenue(date=nil)
+    if date
+      selected_invoices = paid_invoices.select do |invoice|
+        invoice.updated_at == date
+      end
+    else
+      selected_invoices = paid_invoices
+    end
+    selected_invoices.inject(0) {|revenue, invoice| revenue + invoice.amount }
   end
 end
