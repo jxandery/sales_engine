@@ -61,6 +61,7 @@ attr_reader :merchants,
   end
 
   def most_revenue(x)
+    merchants.sort_by {|merchant| merchant.revenue}.reverse[0...x]
     #sort by revenue (largest to smallest)
     #select first (x)
   end
