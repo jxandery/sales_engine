@@ -6,7 +6,8 @@ class TransactionParser
               :engine
 
   def initialize(filename, engine)
-    @file = CSV.open("#{filename}/transactions.csv", :headers => true, :header_converters => :symbol)
+    read = "#{filename}/transactions.csv"
+    @file = CSV.open(read, :headers => true, :header_converters => :symbol)
     @engine = engine
   end
 

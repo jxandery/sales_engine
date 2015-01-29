@@ -6,7 +6,8 @@ class MerchantParser
               :engine
 
   def initialize(filename, engine)
-    @file = CSV.open("#{filename}/merchants.csv", headers: true, header_converters: :symbol)
+    read = "#{filename}/merchants.csv"
+    @file = CSV.open(read, headers: true, header_converters: :symbol)
     @engine = engine
   end
 
