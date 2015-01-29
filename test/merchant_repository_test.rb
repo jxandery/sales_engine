@@ -55,9 +55,4 @@ class MerchantRepositoryTest < Minitest::Test
   def test_find_all_by_id
     assert_equal 1,  merchant_repo.find_all_by_id(1)[0].id
   end
-
-  def test_most_revenue_for_top_x_merchants
-    skip
-
-  end
 end

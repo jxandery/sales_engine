@@ -40,8 +40,8 @@ class ItemRepository
     items.detect {|item| item.description == input}
   end
 
-  def find_by_unit_price(number)
-    items.detect {|item| item.unit_price == BigDecimal.new(number) / BigDecimal(100)}
+  def find_by_unit_price(price)
+    items.detect {|item| item.unit_price == price}
   end
 
   def find_by_merchant_id(number)
@@ -68,8 +68,8 @@ class ItemRepository
     items.select {|item| item.description == input}
   end
 
-  def find_all_by_unit_price(number)
-    items.select {|item| item.unit_price == BigDecimal.new(number) / BigDecimal(100)}
+  def find_all_by_unit_price(price)
+    items.select {|item| item.unit_price == price}
   end
 
   def find_all_by_merchant_id(number)

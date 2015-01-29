@@ -23,17 +23,11 @@ class Merchant
     invoices.select {|invoice| invoice.merchant_id == id}
   end
 
+  def paid_invoices
+    invoices.select {|invoice| invoice.transactions.any? {|transaction| transaction.successful?}}
+  end
+
   def revenue
-    items.inject(0) do |item_revenue, item|
-      item_revenue.+(item_adder(item))
-    end
+    paid_invoices.inject(0) {|revenue, invoice| revenue + invoice.amount }
   end
-
-  def item_adder(item)
-    item.invoice_items.inject(0) do |item_revenue, invoice_item|
-      item_revenue.+((invoice_item.quantity * invoice_item.unit_price))
-    end
-  end
-
-
 end

@@ -6,7 +6,7 @@ class ItemRepositoryTest < Minitest::Test
   attr_reader :item_repo
 
   def setup
-    @item_repo = ItemRepository.new('data', '')
+    @item_repo = ItemRepository.new('support', '')
     item_repo.parse
   end
 
@@ -49,7 +49,7 @@ class ItemRepositoryTest < Minitest::Test
   end
 
   def test_find_by_unit_price
-    assert_equal 1, item_repo.find_by_unit_price(75107).id
+    assert_equal 4, item_repo.find_by_unit_price(42.91).id
   end
 
   def test_find_by_merchant_id

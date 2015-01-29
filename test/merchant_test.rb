@@ -11,8 +11,8 @@ class MerchantTest < Minitest::Test
               :example
 
   def setup
-    @example = CSV.open("./data/merchants.csv", headers: true, header_converters: :symbol).readline
-    @fake_sales_engine = SalesEngine.new
+    @example = CSV.open("./support/merchants.csv", headers: true, header_converters: :symbol).readline
+    @fake_sales_engine = SalesEngine.new('support')
   end
 
   def test_merchant_class_exists
@@ -41,16 +41,16 @@ class MerchantTest < Minitest::Test
     assert "Phil", merchant.name
   end
 
-  def test_item_returns_items_associated_with_merchants
+  def test_items_returns_items_associated_with_merchants
     assert_equal 1, Merchant.new({:id => 1}, fake_sales_engine).items[0].merchant_id
   end
 
-  def test_invoice_returns_invoices_associated_with_merchants
-    assert_equal 26, Merchant.new({:id => 26}, fake_sales_engine).items[0].merchant_id
+  def test_invoices_returns_invoices_associated_with_merchants
+    assert_equal 26, Merchant.new({:id => 26}, fake_sales_engine).invoices[0].merchant_id
   end
 
   def test_revenue_returns_a_number
-    assert Merchant.new({:id => 1}, fake_sales_engine).revenue.is_a?(Fixnum)
+    assert_equal BigDecimal.new('1148393.74'), Merchant.new({:id => 14}, SalesEngine.new).revenue
   end
 
   # items returns a collection of Item instances associated with that merchant for the products they sell
